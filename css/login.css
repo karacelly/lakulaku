@@ -1,0 +1,146 @@
+body{
+    width: 100vw;
+}
+
+.flex{
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../Assets/bglogin.jpg") no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.box{
+    border: 1px solid black;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    width: 35vw;
+    margin-right: 5vw;
+}
+
+.box .field{
+    margin-top: 10px;
+}
+
+.box small{
+    font-size: 0.8rem;
+}
+
+.box input{
+    padding: 10px;
+    width: 100%;
+}
+
+.box h1{
+    font-size: 2vw;
+}
+
+.box a{
+    color: black;
+    text-decoration: none;
+}
+
+.box button{
+    width: 100%;
+    padding: 7px;
+    background-color: #6adaff;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.box button:hover{
+    width: 100%;
+    padding: 7px;
+    background-color: #3a7a90;
+    transition: background-color 0.5s ease;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input{
+    height: 6vh;
+}
+
+.or{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.or span{
+    background:#fff;
+    padding:0 10px;
+}
+
+.baru{
+    padding-top: 10px;
+}
+
+.flex{
+    padding: 20px;
+}
+
+.buttons .facebook{
+    background-color: #4267B2;
+}
+
+.buttons .facebook:hover{
+    background-color: #315390;
+}
+
+.buttons .twitter{
+    background-color: #1DA1F2;
+}
+
+.buttons .twitter:hover{
+    background-color: #0f88cd;
+}
+
+.buttons .apple{
+    background-color: #000000;
+}
+
+.buttons .apple:hover{
+    background-color: #323232;
+}
+
+
+button img{
+    width: 50px;
+    height: 50px;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .flex{
+        justify-content: center;
+    }
+
+    .box{
+        width: 90vw;
+    }
+
+    .box h1{
+        font-size: 8vw;
+    }
+    
+    .field button, .text, input::placeholder, small a, .baru{
+        font-size: 3vw;
+    }
+
+    .buttons button img{
+        width: 6vw;
+        height: 6vw;
+    }
+}

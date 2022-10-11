@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <!--    font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+  <!-- My CSS-->
+  <link rel="stylesheet" href="../CSS/header-footer.css">
+  <link rel="stylesheet" href="../CSS/shop.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<header>
+  <a href="" class="logo">
+    <img src="../Assets/Logo.png" alt="">
+  </a>
+  <a class="item" href="./index.html">Home</a>
+  <a class="item active" href="./shop.html">Shop</a>
+  <a class="item" href="./custom.html">Custom Shirt Maker</a>
+  <a class="item" href="./cart.html">Cart</a>
+  <a href="./login.html" class="item" id="loginstatus">Login</a>
+</header>
+
+<section>
+  <div class="left">
+    <div class="upper">
+      <div class="field">
+        <p>Item Name</p>
+        <input type="text" id="name">
+      </div>
+  
+      <div class="field">
+        <p>Item Category</p>
+        <div class="checkbox">
+          <input type="radio" id="kaos" name="c"> Kaos
+        </div>
+        <div class="checkbox">
+          <input type="radio" id="kemeja" name="c"> Kemeja
+        </div>
+        <div class="checkbox">
+          <input type="radio" id="jaket" name="c"> Jaket
+        </div>
+      </div>
+    </div>
+    
+    <div class="bottom">
+      <div class="field">
+        <p>Price Range</p>
+        <p class="picked">Rp 0 - Rp 550000</p>
+        Rp <sub>100.000</sub> <input type="range" id="price" min="100000" max="1000000" step="10000"> Rp <sub>1.000.000</sub>
+      </div>
+  
+      <div class="field">
+        <button onclick="doSearch()">Search</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="items">
+
+  </div>
+</section>
+
+<div class="before-footer">
+  <div class="footer-abu">
+      <div class="lakulaku">
+      <h4>LAKU-LAKU</h4>
+      <div href=""> Tentang Lakulaku</div>
+      <div href=""> Karir</div>
+      <div href=""> Kebijakan Lakulaku</div>
+      <div href=""> Kebijakan Lakulaku</div>
+      </div>
+
+      <div class ="pembayaran">
+      <h4>PEMBAYARAN</h4>
+      <div id="bca">
+          <img src="../Assets/bca.png" alt=""> 
+      </div>
+      <div id="bri">
+          <img src="../Assets/bri.png" alt="">
+      </div>
+      <div id="bni">
+          <img src="../Assets/bni.png" alt="">
+      </div>
+      <div id="mandiri">
+          <img src="../Assets/Bank_Mandiri_logo_white_bg-removebg-preview.png" alt="">
+      </div>
+      </div>
+      <div class="ikutikami">
+      <h4>IKUTI KAMI</h4>
+      <div class="sosmed">
+          <img class="sosmed-img" src="../Assets/fa book.png" alt="">
+          <div href="">Facebook</div>
+      </div>
+      <div class="sosmed">
+          <img class="sosmed-img" src="../Assets/twitter-removebg-preview (1).png" alt="">
+          <div href="">Twitter</div>
+      </div>
+      <div class="sosmed">
+          <img class="sosmed-img" src="../Assets/ig-removebg-preview.png" alt="">
+          <div href="">Instagram</div>
+      </div>
+      </div>
+
+      <div class="download">
+      <h4>DOWNLOAD APLIKASI</h4>
+      <div class="aplikasi">
+          <img src="../Assets/google_play.png" alt="">
+      </div>
+      <div class="aplikasi">
+          <img src="../Assets/huawei2.png" alt="">
+      </div>
+      <div class="aplikasi" id="apple-store">
+          <img src="../Assets/apple store.png" alt="">
+      </div>
+      </div>
+  </div>
+</div>
+<footer>
+  <h3>Created with Love by our team Est. 2021</h3>
+</footer>
+
+</body>
+<script src="../JS/database.js"></script>
+<script>
+  let user = document.cookie.split("=")[1];
+
+  $("#loginstatus").html("Login");
+  if(document.cookie.split("=")[1] == "true") $("#loginstatus").html("Logout");
+
+  loadItems();
+
+  $("#price").on("change", function(){
+    $(".picked").html(`Rp 0 - Rp ${$("#price").val()}`);
+  });
+
+  function loadItems(){
+    const AMOUNT = image.length;
+
+    for(let i = 0; i < AMOUNT; i++){
+      append(i);
+    }
+  }
+
+  function append(i){
+    $(".items").append(`<div class="card">
+        <div class="image">
+            <img src="../Assets/${image[i]}" alt="">
+        </div>
+        <div class="title">
+          <h3>${itemname[i]}</h3>
+        </div>
+        <div class="price">
+            <h3>Rp ${itemprice[i]}</h3>
+        </div>
+        <div class="button">
+          <button onclick="addToCart()">Add To Cart</button>
+          <a href="detail.html"><button class="see-detail" onclick="setid(${i})">See Detail</button></a>
+        </div>
+      </div>`)
+  }
+
+  function addToCart(){
+    if(user === "false"){
+      alert("Cannot insert item to the cart");
+      alert("Please login first :(")
+    }
+    else{
+      alert("Success adding item to cart");
+    }
+  }
+
+  function doSearch(){
+    $(".items").html("");
+
+    let price = $("#price").val();
+    let name = $("#name").val();
+    let kaos = $("#kaos").prop("checked"); // 2
+    let kemeja = $("#kemeja").prop("checked"); // 3
+    let jaket = $("#jaket").prop("checked"); // 1
+
+
+    const AMOUNT = image.length;
+    if(name == ""){
+      for(let i = 0; i < AMOUNT; i++){
+        if(kaos){
+          if(kategori[i] == 2){
+            append(i);
+          }
+        }
+        if(kemeja){
+          if(kategori[i] == 3){
+            append(i);
+          }
+        }
+        if(jaket){
+          if(kategori[i] == 1){
+            append(i);
+          }
+        }
+      }
+    }else{
+      for(let i = 0; i < AMOUNT; i++){
+        if(itemname[i].includes(name)){
+          append(i);
+        }
+      }
+    }
+
+  }
+
+</script>
+
+</html>

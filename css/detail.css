@@ -1,0 +1,89 @@
+.big-image{
+    width: 400px;
+    border: 3px solid #6adaff;
+    height: auto;
+}
+
+section{
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.flex{
+    display: flex;
+}
+
+.right-info{
+    margin-left: 100px;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+button{
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
+    border: 1px solid #6adaff;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+button:hover{
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    background-color: #3a7a90;
+    transition: background-color 0.5s ease;
+    color: white;
+    cursor: pointer;
+}
+
+.plus{
+    background-color: lawngreen;
+    border: 1px solid lawngreen;
+}
+
+.plus:hover{
+    background-color: #4a9200;
+    border: 1px solid #4a9200;
+}
+
+.minus{
+    background-color: red;
+    border: 1px solid red;
+}
+
+.minus:hover{
+    background-color: #660000;
+    border: 1px solid #660000;
+}
+
+.numbers{
+    margin-top: 40px;
+}
+
+.buy{
+    color: #6adaff;
+    border: 3px solid #6adaff;
+    padding: 10px 50px;
+}
+
+.buy:hover{
+    border: 3px solid #3a7a90;
+    background-color: #3a7a90;
+    color: white;
+    padding: 10px 50px;
+}
+
+#num{
+    padding: 0 10px;
+    margin: 0 10px;
+}

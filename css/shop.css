@@ -1,0 +1,154 @@
+body{
+    overflow-x: hidden;
+}
+
+section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+}
+
+.left{
+    border: 2px solid #6adaff;
+    height: 100%;
+    width: 30%;
+    margin-right: 30px;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.left .field{
+    margin-top: 30px;
+}
+
+
+#name{
+    padding: 5px 12px;
+    margin-top: 10px;
+}
+
+button{
+    padding: 5px 12px;
+    color: white;
+    background: #6adaff;
+    border: none;
+}
+
+button:hover{
+    padding: 5px 12px;
+    color: white;
+    background: #3a7a90;
+    border: none;
+    cursor: pointer;
+}
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 70%;
+}
+
+.card{
+    width: 400px;
+    height: auto;
+    border: 3px solid #6adaff;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card .image{
+    margin-top: 10px;
+}
+
+.card img{
+    width: 200px;
+    height: 240px;
+}
+
+.card .price{
+    margin-bottom: 50px;
+    margin-top: 20px;
+    color: gray;
+}
+
+.card button{
+    width: 75%;
+    background: white;
+    color: gold;
+    font-weight: bold;
+    border: 3px solid gold;
+    margin-bottom: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.card button:hover{
+    width: 75%;
+    background: gold;
+    color: white;
+    font-weight: bold;
+    border: 3px solid gold;
+    transition: background-color 0.5s ease;
+}
+
+.card .see-detail{
+    width: 75%;
+    background: white;
+    color: #6adaff;
+    font-weight: bold;
+    border: 3px solid #6adaff;
+    transition: background-color 0.5s ease;
+}
+
+.card .see-detail:hover{
+    width: 75%;
+    background: #6adaff;
+    color: white;
+    font-weight: bold;
+    border: 3px solid #6adaff;
+    transition: background-color 0.5s ease;
+}
+
+.card .button{
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    section{
+        flex-direction: column;
+    }
+
+    .left{
+        font-size: 2vw;
+        width: 100%;
+        display: flex;
+        margin: 0;
+    }
+
+    input{
+        height: 3vw;
+        width: 30vw;
+    }
+
+    .left .field{
+        margin-top: 0;
+        padding: 2vw;
+    }
+
+    .left p{
+        font-weight: bold;
+    }
+
+    .items{
+        margin: auto;
+        width: 100%;
+    }
+}

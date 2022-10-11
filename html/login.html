@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <!--    font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <!-- My CSS-->
+    <link rel="stylesheet" href="../CSS/header-footer.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<header>
+    <a href="" class="logo">
+        <img src="../Assets/Logo.png" alt="">
+    </a>
+    <a class="item" href="./index.html">Home</a>
+    <a class="item" href="./shop.html">Shop</a>
+    <a class="item" href="./custom.html">Custom Shirt Maker</a>
+    <a class="item" href="./cart.html">Cart</a>
+    <a href="./login.html" class="item" id="loginstatus">Login</a>
+</header>
+
+<div class="flex">
+    <div class="box">
+        <h1>Log in</h1>
+        <div class="field">
+            <input type="text" placeholder="Username / Email" id="username">
+        </div>
+        <div class="field">
+            <input type="password" placeholder="Password" id="password">
+        </div>
+        <div class="field">
+            <button onclick="success()">Login</button>
+        </div>
+        <small><a href="">Forget password?</a></small>
+        <div class="or"><span>or</span></div>
+
+        <div class="buttons">
+            <button class="facebook"><img src="../Assets/facebook.png" alt=""> <div class="text">Facebook</div></button>
+            <button class="apple " ><img src="../Assets/apple.png" alt=""><div class="text">Apple</div></button>
+            <button class="twitter"><img src="../Assets/twitter.png" alt=""><div class="text">Twitter</div></button>
+        </div>
+        <div class="baru">
+            Baru di Laku Laku ? <a href="./register.html"><u>Daftar</u></a>
+        </div>
+    </div>
+</div>
+<div class="before-footer">
+    <div class="footer-abu">
+      <div class="lakulaku">
+        <h4>LAKU-LAKU</h4>
+        <div href=""> Tentang Lakulaku</div>
+        <div href=""> Karir</div>
+        <div href=""> Kebijakan Lakulaku</div>
+        <div href=""> Kebijakan Lakulaku</div>
+      </div>
+  
+      <div class ="pembayaran">
+        <h4>PEMBAYARAN</h4>
+        <div class="bank" id="bca">
+          <img src="../Assets/bca.png" alt=""> 
+        </div>
+        <div class="bank" id="bri">
+          <img src="../Assets/bri.png" alt="">
+        </div>
+        <div class="bank" id="bni">
+          <img src="../Assets/bni.png" alt="">
+        </div>
+        <div class="bank" id="mandiri">
+          <img src="../Assets/Bank_Mandiri_logo_white_bg-removebg-preview.png" alt="">
+        </div>
+      </div>
+      <div class="ikutikami">
+        <h4>IKUTI KAMI</h4>
+        <div class="sosmed">
+          <img class="sosmed-img" src="../Assets/fa book.png" alt="">
+          <div href="">Facebook</div>
+        </div>
+        <div class="sosmed">
+          <img class="sosmed-img" src="../Assets/twitter-removebg-preview (1).png" alt="">
+          <div href="">Twitter</div>
+        </div>
+        <div class="sosmed">
+          <img class="sosmed-img" src="../Assets/ig-removebg-preview.png" alt="">
+          <div href="">Instagram</div>
+        </div>
+      </div>
+  
+      <div class="download">
+        <h4>DOWNLOAD APLIKASI</h4>
+        <div class="aplikasi">
+          <img src="../Assets/google_play.png" alt="">
+        </div>
+        <div class="aplikasi">
+          <img src="../Assets/huawei2.png" alt="">
+        </div>
+        <div class="aplikasi" id="apple-store">
+          <img src="../Assets/apple store.png" alt="">
+        </div>
+      </div>
+  </div>
+</div>
+<footer>
+    <h3>Created with Love by our team Est. 2021</h3>
+</footer>
+
+</body>
+<script src="../JS/database.js"></script>
+<script>
+    document.cookie = "userlogin=false;";
+
+    $("#loginstatus").html("Login");
+    if(document.cookie.split("=")[1] == "true") $("#loginstatus").html("Logout");
+
+    function success(){
+        let succ = false;
+        for (let i = 0; i < username.length; i++){
+            if($("#username").val() === username[i]){
+                if($("#password").val() === password[i]){
+                    succ = true;
+                }
+            }
+        }
+        if(succ){
+            alert("Login Success");
+            document.cookie = "userlogin=true;";
+            document.location.href = "./index.html";
+        }else{
+            alert("Wrong username / password");
+        }
+    }
+</script>
+
+</html>

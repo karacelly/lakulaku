@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <!--    font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+  <!-- My CSS-->
+  <link rel="stylesheet" href="../CSS/header-footer.css">
+  <link rel="stylesheet" href="../CSS/cart.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<header>
+  <a href="" class="logo">
+    <img src="../Assets/Logo.png" alt="">
+  </a>
+  <a class="item" href="./index.html">Home</a>
+  <a class="item" href="./shop.html">Shop</a>
+  <a class="item" href="./custom.html">Custom Shirt Maker</a>
+  <a class="item active" href="./cart.html">Cart</a>
+  <a href="./login.html" class="item" id="loginstatus">Login</a>
+</header>
+
+<section>
+  <h1>My Cart</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item Picture</th>
+        <th>Item Name</th>
+        <th>Item Amount</th>
+        <th>Item Price </th>
+        <th>Item Subtotal</th>
+      </tr>
+    </thead>
+    <tbody class="items">
+
+    </tbody>
+  </table>
+  <div class="full">
+    <button onclick="kosongkan()">Checkout</button>
+  </div>
+</section>
+
+<div class="before-footer">
+  <div class="footer-abu">
+    <div class="lakulaku">
+      <h4>LAKU-LAKU</h4>
+      <div href=""> Tentang Lakulaku</div>
+      <div href=""> Karir</div>
+      <div href=""> Kebijakan Lakulaku</div>
+      <div href=""> Kebijakan Lakulaku</div>
+    </div>
+
+    <div class ="pembayaran">
+      <h4>PEMBAYARAN</h4>
+      <div id="bca">
+        <img src="../Assets/bca.png" alt=""> 
+      </div>
+      <div id="bri">
+        <img src="../Assets/bri.png" alt="">
+      </div>
+      <div id="bni">
+        <img src="../Assets/bni.png" alt="">
+      </div>
+      <div id="mandiri">
+        <img src="../Assets/Bank_Mandiri_logo_white_bg-removebg-preview.png" alt="">
+      </div>
+    </div>
+    <div class="ikutikami">
+      <h4>IKUTI KAMI</h4>
+      <div class="sosmed">
+        <img class="sosmed-img" src="../Assets/fa book.png" alt="">
+        <div href="">Facebook</div>
+      </div>
+      <div class="sosmed">
+        <img class="sosmed-img" src="../Assets/twitter-removebg-preview (1).png" alt="">
+        <div href="">Twitter</div>
+      </div>
+      <div class="sosmed">
+        <img class="sosmed-img" src="../Assets/ig-removebg-preview.png" alt="">
+        <div href="">Instagram</div>
+      </div>
+    </div>
+
+    <div class="download">
+      <h4>DOWNLOAD APLIKASI</h4>
+      <div class="aplikasi">
+        <img src="../Assets/google_play.png" alt="">
+      </div>
+      <div class="aplikasi">
+        <img src="../Assets/huawei2.png" alt="">
+      </div>
+      <div class="aplikasi" id="apple-store">
+        <img src="../Assets/apple store.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <h3>Created with Love by our team Est. 2021</h3>
+</footer>
+</body>
+<script src="../JS/database.js"></script>
+<script>
+
+  $("#loginstatus").html("Login");
+  if(document.cookie.split("=")[1] == "true") $("#loginstatus").html("Logout");
+  else{
+    alert("Please login first");
+    document.location.href = "./login.html";
+  }
+
+  function kosongkan(){
+    $(".items").html("");
+    $(".items").append(`<tr>
+        <td colspan="4">Total</td>
+        <td>Rp ${0}</td>
+      </tr>`);
+  }
+  $(".items").html("");
+  let total = 0;
+  let arr = [];
+  for(let i = 0; i < image.length; i++){
+    let rand = Math.random()*1;
+    let data = Math.floor(Math.random()*5)+1;
+    if(rand >= 0.9){
+      arr.push(i);
+      $(".items").append(`<tr>
+        <td><img src="../Assets/${image[i]}" alt=""></td>
+        <td>${itemname[i]}</td>
+        <td>${data}</td>
+        <td>${itemprice[i]}</td>
+        <td>${data * itemprice[i]}</td>
+      </tr>
+      `);
+      total += data * itemprice[i];
+    }
+  }
+
+  if(arr.length == 0){
+    let angka = Math.floor(Math.random()*image.length);
+    let data = Math.floor(Math.random()*5)+1;
+
+    $(".items").append(`<tr>
+        <td><img src="../Assets/${image[angka]}" alt=""></td>
+        <td>${itemname[angka]}</td>
+        <td>${data}</td>
+        <td>${itemprice[angka]}</td>
+        <td>${data * itemprice[angka]}</td>
+      </tr>
+      `);
+    total += data * itemprice[angka];
+  }
+
+  $(".items").append(`<tr>
+        <td colspan="4">Total</td>
+        <td>Rp ${total}</td>
+      </tr>`)
+</script>
+</html>

@@ -1,0 +1,81 @@
+body{
+    overflow: hidden;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../Assets/bglogin.jpg") no-repeat;
+    background-size: cover;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.box{
+    border: 1px solid black;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    margin-right: 5vw;
+    width: 400px;
+}
+
+.box .field{
+    margin-top: 10px;
+}
+
+.box small{
+    font-size: 0.8rem;
+}
+
+.box input{
+    padding: 10px;
+    width: 100%;
+}
+
+.box a{
+    color: black;
+    text-decoration: none;
+}
+
+.box button{
+    width: 100%;
+    padding: 7px;
+    background-color: #6adaff;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.box button:hover{
+    width: 100%;
+    padding: 7px;
+    background-color: #3a7a90;
+    transition: background-color 0.5s ease;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.or span{
+    background:#fff;
+    padding:0 10px;
+}
+
+.baru{
+    margin-top: 5px;
+}
+
+.flex{
+    padding: 20px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+    <!--    font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- My css-->
+    <link rel="stylesheet" href="../css/header-footer.css" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <a href="" class="logo">
+        <img src="../Assets/Logo.png" alt="" />
+      </a>
+      <a class="item" href="./index.html">Home</a>
+      <a class="item" href="./shop.html">Shop</a>
+      <a class="item" href="./custom.html">Custom Shirt Maker</a>
+      <a class="item" href="./cart.html">Cart</a>
+      <a href="./login.html" class="item" id="loginstatus">Login</a>
+    </header>
+
+    <section>
+      <div class="flex">
+        <div class="box">
+          <h1>Register</h1>
+          <div class="field">
+            <input type="text" placeholder="Username / Email" />
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" />
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Confirm Password" />
+          </div>
+          <div class="field">
+            <button onclick="success()">Register</button>
+          </div>
+
+          <div class="baru">
+            Sudah Punya Akun ? <a href="./login.html"><u>Login Sekarang</u></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <h3>Created with Love by our team Est. 2021</h3>
+    </footer>
+  </body>
+  <script src="../JS/database.js"></script>
+  <script>
+    $("#loginstatus").html("Login");
+    if (document.cookie.split("=")[1] == "true")
+      $("#loginstatus").html("Logout");
+
+    function success() {
+      alert("Registration Success");
+      document.location.href = "./login.html";
+    }
+  </script>
+</html>
